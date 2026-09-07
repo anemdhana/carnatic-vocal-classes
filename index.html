@@ -55,8 +55,8 @@
 
       <div id="images" class="rpanel active">
         <h3>Sheet / Notation</h3>
-        <!-- Placeholder SVG image — replace with your uploaded sheet at assets/images/sarali1-sheet.svg -->
-        <img src="assets/images/sarali1-sheet.svg" alt="Sarali 1 sheet (replace assets/images/sarali1-sheet.svg)">
+        <!-- The sheet image you will upload should be named assets/images/sarali1-sheet.jpeg -->
+        <img src="assets/images/sarali1-sheet.jpeg" alt="Sarali 1 sheet (replace assets/images/sarali1-sheet.jpeg)">
       </div>
 
       <div id="audios" class="rpanel">
@@ -97,9 +97,10 @@
         document.querySelector('[data-tab="tab-sarali"]').classList.add('active');
         document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
         document.getElementById('tab-sarali').classList.add('active');
-        // optionally, update image/audio srcs according to selection (simple mapping)
+        // update image src to use JPEG sheets
         var img = document.querySelector('#images img');
-        img.src = 'assets/images/' + path + '-sheet.svg';
+        img.src = 'assets/images/' + path + '-sheet.jpeg';
+        // update audio sources to prefer .ogg and fall back to .mp3
         var sources = document.querySelectorAll('audio source');
         if(sources && sources.length >= 2) {
           sources[0].src = 'assets/audio/' + path + '.ogg';

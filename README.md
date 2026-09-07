@@ -12,10 +12,14 @@ How to use / deploy
 1. The site is in the repository root. To preview on GitHub Pages, push to `main` and enable Pages to serve from the repository root or the `main` branch.
 
 2. Replace placeholders:
-   - assets/images/sarali1-sheet.svg — replace with the sheet image you attached (rename to this path)
-   - assets/audio/sarali1.ogg or assets/audio/sarali1.mp3 — place your provided audio file(s) in `assets/audio/` and ensure names match (e.g. `sarali1.ogg` or `sarali1.mp3` depending on selection mapping).
+   - assets/images/sarali1-sheet.jpeg — replace with the sheet image you provided (rename to this path)
+   - assets/audio/sarali-1.ogg or assets/audio/sarali-1.mp3 — place your provided audio file(s) in `assets/audio/` and ensure names match (e.g. `sarali-1.ogg`)
 
-3. The menu JS maps selection `data-path="sarali-1"` to `assets/images/sarali-1-sheet.svg` and `assets/audio/sarali-1.(ogg|mp3)`. Upload your real files with those names for the page to show content.
+3. The menu JS maps selection `data-path="sarali-1"` to `assets/images/sarali-1-sheet.jpeg` and `assets/audio/sarali-1.(ogg|mp3)`. Upload your real files with those names for the page to show content.
+
+Upload audio
+
+- You said your audio file is `sarali-1.ogg`. Please upload it as `assets/audio/sarali-1.ogg` (or add a `sarali-1.mp3` fallback). When the audio is present the player in the Audios tab will play the lesson.
 
 Want me to:
 - Commit the real image/audio if you upload them here, or
