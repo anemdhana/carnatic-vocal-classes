@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carnatic Vocal Classes — Sarali Swaras</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><a href="index.html">Carnatic Vocal Classes</a></div>
+    <nav class="top-nav" aria-label="Main navigation">
+      <ul>
+        <li class="has-drop" tabindex="0">
+          <button class="drop-toggle" aria-haspopup="true" aria-expanded="false">Sarali Swaras ▾</button>
+          <ul class="drop">
+            <li><a href="#" data-path="sarali-1">Sarali-1</a></li>
+            <li><a href="#" data-path="sarali-2">Sarali-2</a></li>
+            <li><a href="#" data-path="sarali-3">Sarali-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="breadcrumb" id="breadcrumb">Home</div>
+
+  <main class="container">
+    <aside class="left-pane">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="tab-sarali">Sarali 1</button>
+        <button class="tab-btn" data-tab="tab-song">Song</button>
+      </div>
+      <section id="tab-sarali" class="tab-panel active">
+        <h2>Sarali 1 — Practice</h2>
+        <p>Practice patterns for Sarali 1. Use the right pane to see sheet and play audio.</p>
+        <ol>
+          <li>Sa Ri Ga</li>
+          <li>Sa Ri Ga Ma</li>
+          <li>Ascending / descending exercises</li>
+        </ol>
+      </section>
+      <section id="tab-song" class="tab-panel">
+        <h2>Song</h2>
+        <p>Lyrics, notation and practice tips for the song.</p>
+      </section>
+    </aside>
+
+    <section class="right-pane">
+      <div class="right-tabs">
+        <button class="rbtn active" data-rtab="images">Images</button>
+        <button class="rbtn" data-rtab="audios">Audios</button>
+      </div>
+
+      <div id="images" class="rpanel active">
+        <h3>Sheet / Notation</h3>
+        <!-- Placeholder SVG image — replace with your uploaded sheet at assets/images/sarali1-sheet.svg -->
+        <img src="assets/images/sarali1-sheet.svg" alt="Sarali 1 sheet (replace assets/images/sarali1-sheet.svg)">
+      </div>
+
+      <div id="audios" class="rpanel">
+        <h3>Audio</h3>
+        <p>Play the Sarali 1 audio for practice.</p>
+        <audio controls>
+          <source src="assets/audio/sarali1.ogg" type="audio/ogg">
+          <source src="assets/audio/sarali1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element. Please upload assets/audio/sarali1.ogg or assets/audio/sarali1.mp3 to hear the lesson.
+        </audio>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">© Carnatic Vocal Classes</footer>
+
+  <script>
+    // Dropdown accessibility & hover handled by CSS; enhance keyboard/click behavior
+    document.querySelectorAll('.top-nav .has-drop').forEach(function(item){
+      var btn = item.querySelector('.drop-toggle');
+      btn.addEventListener('click', function(e){
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        item.classList.toggle('open', !expanded);
+      });
+    });
+
+    // Menu item selection -> update breadcrumb and load content
+    document.querySelectorAll('.drop a[data-path]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        var path = a.getAttribute('data-path');
+        var label = a.textContent.trim();
+        // update breadcrumb
+        document.getElementById('breadcrumb').textContent = 'Home / Sarali Swaras / ' + label;
+        // set left tab to Sarali
+        document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+        document.querySelector('[data-tab="tab-sarali"]').classList.add('active');
+        document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+        document.getElementById('tab-sarali').classList.add('active');
+        // optionally, update image/audio srcs according to selection (simple mapping)
+        var img = document.querySelector('#images img');
+        img.src = 'assets/images/' + path + '-sheet.svg';
+        var sources = document.querySelectorAll('audio source');
+        if(sources && sources.length >= 2) {
+          sources[0].src = 'assets/audio/' + path + '.ogg';
+          sources[1].src = 'assets/audio/' + path + '.mp3';
+        } else if (sources && sources.length === 1) {
+          sources[0].src = 'assets/audio/' + path + '.ogg';
+        }
+        // reload audio element to pick up new source
+        var audioEl = document.querySelector('audio');
+        audioEl.load();
+      });
+    });
+
+    // Left tabs
+    document.querySelectorAll('.tab-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var target = btn.getAttribute('data-tab');
+        document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    // Right pane tabs
+    document.querySelectorAll('.rbtn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.rbtn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var target = btn.getAttribute('data-rtab');
+        document.querySelectorAll('.rpanel').forEach(function(p){ p.classList.remove('active'); });
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

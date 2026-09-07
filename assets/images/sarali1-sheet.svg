@@ -1,0 +1,14 @@
+<!-- Placeholder SVG sheet for Sarali-1. Replace this file with the scanned sheet/image you provided. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600">
+  <rect width="100%" height="100%" fill="#fffefc"/>
+  <g fill="#6b5a4a" font-family="Merriweather, serif" font-size="28">
+    <text x="60" y="80">Sarali 1 — (Placeholder sheet)</text>
+    <text x="60" y="120" font-size="18">Replace assets/images/sarali1-sheet.svg with your uploaded image or the provided sheet.</text>
+  </g>
+  <g fill="#e9e1d8">
+    <circle cx="980" cy="1400" r="120"/>
+  </g>
+  <g fill="#b1642e" font-size="14">
+    <text x="60" y="160">Notation / lyrics go here.</text>
+  </g>
+</svg>
